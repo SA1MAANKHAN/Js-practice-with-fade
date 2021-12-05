@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="./index.js"></script> -->
+    <title>Practice</title>
+
+    <style>
+        body{
+            height: 100vh;
+            width: 100vw;
+            background-image: url("https://cdn.dribbble.com/users/2035338/screenshots/11193887/motion_cat_still_2x.gif?compress=1&resize=400x300`");
+        }
+
+    
+    </style>
+</head>
+<body>
+
+    <h1 class="heading" id="heading1" >Click Btn to get fact</h1>
+
+    <button class="btn" id="btn1">Get A Cat fact</button>
+    
+    <script>
+
+        const btn = document.querySelector(".btn");
+
+
+        
+        const heading = document.querySelector("#heading1")
+
+        const apiCall = async ()=>{
+            
+            const data = await fetch(`https://catfact.ninja/fact`);
+
+            const res = await data.json();
+
+            heading.textContent = res.fact;
+
+
+
+        }
+
+        btn.addEventListener("click",()=>{
+         
+            apiCall();
+
+        })
+
+//         const date = new Date().getUTCFullYear()
+
+//         console.log(date)
+
+//         setTimeout(()=>{
+// console.log("5 secs passed")
+//         }, 5000)
+
+
+    </script>
+
+</body>
+</html>
